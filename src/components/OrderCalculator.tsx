@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { OrderCartItem, SideCartItem, PortionSizeId } from '../types';
 import { PORTION_PRICINGS, SIDES_ITEMS, MENU_ITEMS, FB_MARKETPLACE_URL } from '../data/menuData';
 import { ShoppingBag, Trash2, Plus, Minus, MessageCircle, Copy, Check, MapPin, DollarSign, Calendar, AlertCircle } from 'lucide-react';
+
 
 interface OrderCalculatorProps {
   cartDishes: OrderCartItem[];
@@ -119,110 +121,137 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               )}
             </div>
 
-            {cartDishes.length === 0 && cartSides.length === 0 ? (
-              <div className="text-center py-10 px-4 bg-[#2D2A26]/50 rounded-xl border border-dashed border-[#8B4513]/40 space-y-3">
-                <p className="text-[#D9D0C1] text-sm">Your order cart is currently empty.</p>
-                <p className="text-xs text-amber-300/80">
-                  Select portion sizes from the menu above, or use the quick buttons below.
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {cartDishes.map((item, idx) => (
-                  <div
-                    key={`dish-${idx}`}
-                    className="bg-[#2D2A26] p-4 rounded-xl border border-[#8B4513]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-                  >
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-[#FDFBF7] text-base">{item.dishName}</span>
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-[#8B4513] text-amber-200 border border-[#A0522D]">
-                          {item.sizeName}
-                        </span>
-                      </div>
-                      {item.dishId === 'mandi' && (
-                        <p className={`text-xs ${item.isNutless ? 'text-emerald-400 font-semibold' : 'text-amber-300/80'}`}>
-                          {item.isNutless ? '✓ Nutless / Nut-Free requested' : 'Includes authentic cashews & nuts'}
-                        </p>
-                      )}
-                      <p className="text-xs text-[#D9D0C1] font-mono">${item.price} CAD each</p>
-                    </div>
-
-                    <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-[#8B4513]/30 pt-2 sm:pt-0">
-                      <div className="flex items-center bg-[#23201D] rounded-lg border border-[#8B4513]/60">
-                        <button
-                          onClick={() => onUpdateDishQuantity(idx, -1)}
-                          className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
-                        >
-                          <Minus className="w-4 h-4" />
-                        </button>
-                        <span className="px-3 font-bold text-sm text-white">{item.quantity}</span>
-                        <button
-                          onClick={() => onUpdateDishQuantity(idx, 1)}
-                          className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
-                        >
-                          <Plus className="w-4 h-4" />
-                        </button>
-                      </div>
-
-                      <span className="font-extrabold text-amber-300 text-lg sm:w-20 sm:text-right">
-                        ${item.price * item.quantity}
-                      </span>
-
-                      <button
-                        onClick={() => onRemoveDish(idx)}
-                        className="text-[#D9D0C1]/60 hover:text-rose-400 p-1 cursor-pointer transition-colors"
-                        aria-label="Remove item"
+            <AnimatePresence mode="popLayout" initial={false}>
+              {cartDishes.length === 0 && cartSides.length === 0 ? (
+                <motion.div
+                  key="empty-cart-state"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-center py-10 px-4 bg-[#2D2A26]/50 rounded-xl border border-dashed border-[#8B4513]/40 space-y-3"
+                >
+                  <p className="text-[#D9D0C1] text-sm">Your order cart is currently empty.</p>
+                  <p className="text-xs text-amber-300/80">
+                    Select portion sizes from the menu above to build your order.
+                  </p>
+                </motion.div>
+              ) : (
+                <div className="space-y-4">
+                  <AnimatePresence initial={false} mode="popLayout">
+                    {cartDishes.map((item, idx) => (
+                      <motion.div
+                        key={`dish-${item.dishId}-${item.sizeId}-${item.isNutless}-${idx}`}
+                        layout
+                        initial={{ opacity: 0, y: -12, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                        transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+                        className="bg-[#2D2A26] p-4 rounded-xl border border-[#8B4513]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
                       >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-[#FDFBF7] text-base">{item.dishName}</span>
+                            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-[#8B4513] text-amber-200 border border-[#A0522D]">
+                              {item.sizeName}
+                            </span>
+                          </div>
+                          {item.dishId === 'mandi' && (
+                            <p className={`text-xs ${item.isNutless ? 'text-emerald-400 font-semibold' : 'text-amber-300/80'}`}>
+                              {item.isNutless ? '✓ Nutless / Nut-Free requested' : 'Includes authentic cashews & nuts'}
+                            </p>
+                          )}
+                          <p className="text-xs text-[#D9D0C1] font-mono">${item.price} CAD each</p>
+                        </div>
 
-                {cartSides.map((item) => (
-                  <div
-                    key={`side-${item.sideId}`}
-                    className="bg-[#2D2A26] p-4 rounded-xl border border-[#8B4513]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-                  >
-                    <div>
-                      <span className="font-bold text-emerald-300 text-base">{item.sideName}</span>
-                      <span className="ml-2 text-xs text-[#D9D0C1] font-mono">${item.price} CAD each (Nut-Free)</span>
-                    </div>
+                        <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-[#8B4513]/30 pt-2 sm:pt-0">
+                          <div className="flex items-center bg-[#23201D] rounded-lg border border-[#8B4513]/60">
+                            <motion.button
+                              whileTap={{ scale: 0.85 }}
+                              onClick={() => onUpdateDishQuantity(idx, -1)}
+                              className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
+                            >
+                              <Minus className="w-4 h-4" />
+                            </motion.button>
+                            <span className="px-3 font-bold text-sm text-white">{item.quantity}</span>
+                            <motion.button
+                              whileTap={{ scale: 0.85 }}
+                              onClick={() => onUpdateDishQuantity(idx, 1)}
+                              className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
+                            >
+                              <Plus className="w-4 h-4" />
+                            </motion.button>
+                          </div>
 
-                    <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-[#8B4513]/30 pt-2 sm:pt-0">
-                      <div className="flex items-center bg-[#23201D] rounded-lg border border-[#8B4513]/60">
-                        <button
-                          onClick={() => onUpdateSideQuantity(item.sideId, -1)}
-                          className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
-                        >
-                          <Minus className="w-4 h-4" />
-                        </button>
-                        <span className="px-3 font-bold text-sm text-white">{item.quantity}</span>
-                        <button
-                          onClick={() => onUpdateSideQuantity(item.sideId, 1)}
-                          className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
-                        >
-                          <Plus className="w-4 h-4" />
-                        </button>
-                      </div>
+                          <span className="font-extrabold text-amber-300 text-lg sm:w-20 sm:text-right">
+                            ${item.price * item.quantity}
+                          </span>
 
-                      <span className="font-extrabold text-amber-300 text-lg sm:w-20 sm:text-right">
-                        ${item.price * item.quantity}
-                      </span>
+                          <motion.button
+                            whileTap={{ scale: 0.85 }}
+                            onClick={() => onRemoveDish(idx)}
+                            className="text-[#D9D0C1]/60 hover:text-rose-400 p-1 cursor-pointer transition-colors"
+                            aria-label="Remove item"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </motion.button>
+                        </div>
+                      </motion.div>
+                    ))}
 
-                      <button
-                        onClick={() => onRemoveSide(item.sideId)}
-                        className="text-[#D9D0C1]/60 hover:text-rose-400 p-1 cursor-pointer transition-colors"
-                        aria-label="Remove side"
+                    {cartSides.map((item) => (
+                      <motion.div
+                        key={`side-${item.sideId}`}
+                        layout
+                        initial={{ opacity: 0, y: -12, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                        transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+                        className="bg-[#2D2A26] p-4 rounded-xl border border-[#8B4513]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
                       >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+                        <div>
+                          <span className="font-bold text-emerald-300 text-base">{item.sideName}</span>
+                          <span className="ml-2 text-xs text-[#D9D0C1] font-mono">${item.price} CAD each (Nut-Free)</span>
+                        </div>
+
+                        <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-[#8B4513]/30 pt-2 sm:pt-0">
+                          <div className="flex items-center bg-[#23201D] rounded-lg border border-[#8B4513]/60">
+                            <motion.button
+                              whileTap={{ scale: 0.85 }}
+                              onClick={() => onUpdateSideQuantity(item.sideId, -1)}
+                              className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
+                            >
+                              <Minus className="w-4 h-4" />
+                            </motion.button>
+                            <span className="px-3 font-bold text-sm text-white">{item.quantity}</span>
+                            <motion.button
+                              whileTap={{ scale: 0.85 }}
+                              onClick={() => onUpdateSideQuantity(item.sideId, 1)}
+                              className="p-1.5 text-[#E9E4DB] hover:text-white cursor-pointer"
+                            >
+                              <Plus className="w-4 h-4" />
+                            </motion.button>
+                          </div>
+
+                          <span className="font-extrabold text-amber-300 text-lg sm:w-20 sm:text-right">
+                            ${item.price * item.quantity}
+                          </span>
+
+                          <motion.button
+                            whileTap={{ scale: 0.85 }}
+                            onClick={() => onRemoveSide(item.sideId)}
+                            className="text-[#D9D0C1]/60 hover:text-rose-400 p-1 cursor-pointer transition-colors"
+                            aria-label="Remove side"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </motion.button>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+              )}
+            </AnimatePresence>
 
             <div className="space-y-4 pt-4 border-t border-[#8B4513]/40">
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300">

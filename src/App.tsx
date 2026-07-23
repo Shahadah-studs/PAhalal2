@@ -9,18 +9,29 @@ import { FaqSection } from './components/FaqSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { Footer } from './components/Footer';
 import { PhotoModal } from './components/PhotoModal';
+import { CartToast } from './components/CartToast';
 
-import { MenuItem, SideItem, PortionSizeId, OrderCartItem, SideCartItem } from './types';
-import { PORTION_PRICINGS, MENU_ITEMS } from './data/menuData';
+import { MenuItem, SideItem, PortionSizeId, OrderCartItem, SideCartItem, ToastNotification } from './types';
+import { PORTION_PRICINGS, MENU_ITEMS, ASSET_IMAGES } from './data/menuData';
 
 export default function App() {
   const [cartDishes, setCartDishes] = useState<OrderCartItem[]>([]);
   const [cartSides, setCartSides] = useState<SideCartItem[]>([]);
   const [activePhotoDish, setActivePhotoDish] = useState<MenuItem | null>(null);
+  const [toasts, setToasts] = useState<ToastNotification[]>([]);
 
   const cartCount =
     cartDishes.reduce((sum, d) => sum + d.quantity, 0) +
     cartSides.reduce((sum, s) => sum + s.quantity, 0);
+
+  const addToast = (toast: Omit<ToastNotification, 'id'>) => {
+    const id = Date.now().toString() + Math.random().toString(36).substring(2, 6);
+    setToasts((prev) => [...prev.slice(-2), { ...toast, id }]);
+  };
+
+  const handleDismissToast = (id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
 
   const handleAddToCart = (dishId: 'mandi' | 'pulao', sizeId: PortionSizeId, isNutless: boolean) => {
     const dishObj = MENU_ITEMS.find((m) => m.id === dishId);
@@ -51,6 +62,14 @@ export default function App() {
         ];
       }
     });
+
+    const nutTag = dishId === 'mandi' ? (isNutless ? 'Nutless Option' : 'Authentic Nuts') : 'Nut-Free';
+    addToast({
+      title: dishObj.name,
+      subtitle: `${sizeObj.name} (${sizeObj.servings}) • ${nutTag}`,
+      price: sizeObj.price,
+      imageUrl: dishObj.photoUrl,
+    });
   };
 
   const handleAddSide = (side: SideItem, quantity: number) => {
@@ -72,7 +91,16 @@ export default function App() {
         ];
       }
     });
+
+    addToast({
+      title: side.name,
+      subtitle: `Nut-Free Side Sauce`,
+      price: side.price,
+      quantity,
+      imageUrl: ASSET_IMAGES.sides,
+    });
   };
+
 
   const handleUpdateDishQuantity = (index: number, delta: number) => {
     setCartDishes((prev) => {
@@ -158,6 +186,13 @@ export default function App() {
         onClose={() => setActivePhotoDish(null)}
         onAddToCart={handleAddToCart}
       />
+
+      <CartToast
+        toasts={toasts}
+        onDismiss={handleDismissToast}
+        onViewCart={scrollToOrderBuilder}
+      />
     </div>
   );
 }
+

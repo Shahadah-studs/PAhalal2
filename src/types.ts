@@ -68,3 +68,12 @@ export interface ReviewItem {
   text: string;
   dish: string;
 }
+
+export interface ToastNotification {
+  id: string;
+  title: string;
+  subtitle: string;
+  price?: number;
+  imageUrl?: string;
+  quantity?: number;
+}

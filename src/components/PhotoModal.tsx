@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { MenuItem, PortionSizeId } from '../types';
 import { PORTION_PRICINGS } from '../data/menuData';
 import { X, ShieldCheck, AlertTriangle, Plus, Flame } from 'lucide-react';
@@ -81,17 +82,19 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
             </h5>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {PORTION_PRICINGS.map((p) => (
-                <button
+                <motion.button
                   key={p.id}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.94 }}
                   onClick={() => {
                     onAddToCart(dish.id, p.id, isMandi ? false : true);
                     onClose();
                   }}
-                  className="p-3 rounded-xl bg-white hover:bg-[#8B4513] hover:text-white border border-[#E9E4DB] transition-all text-left group cursor-pointer"
+                  className="p-3 rounded-xl bg-white hover:bg-[#8B4513] hover:text-white border border-[#E9E4DB] transition-colors text-left group cursor-pointer"
                 >
                   <p className="font-bold text-xs text-[#2D2A26] group-hover:text-amber-200">{p.name}</p>
                   <p className="font-extrabold text-sm text-[#8B4513] group-hover:text-white">${p.price} CAD</p>
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>

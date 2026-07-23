@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, MapPin, Calendar, DollarSign, MessageCircle, Menu as MenuIcon, X, ShieldCheck } from 'lucide-react';
 import { FB_MARKETPLACE_URL, LOGO_URL } from '../data/menuData';
 
@@ -23,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
       <div className="bg-[#8B4513] text-[#FDFBF7] px-4 py-1.5 text-xs sm:text-sm font-medium text-center border-b border-[#A0522D] flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
         <span className="inline-flex items-center gap-1.5 text-amber-200 font-semibold">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          100% Halal & Family-Owned
+          100% Halal &amp; Family-Owned
         </span>
         <span className="hidden md:inline text-amber-300/50">•</span>
         <span className="inline-flex items-center gap-1 text-amber-100">
@@ -71,20 +72,32 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
+          <motion.button
             onClick={onOpenCart}
             id="cart-toggle-btn"
-            className="relative bg-[#8B4513]/90 hover:bg-[#8B4513] text-[#FDFBF7] px-3.5 py-2 rounded-lg font-medium text-sm flex items-center gap-2 border border-[#A0522D] transition-all cursor-pointer shadow-sm active:scale-95"
+            whileTap={{ scale: 0.92 }}
+            whileHover={{ scale: 1.03 }}
+            className="relative bg-[#8B4513]/90 hover:bg-[#8B4513] text-[#FDFBF7] px-3.5 py-2 rounded-lg font-medium text-sm flex items-center gap-2 border border-[#A0522D] transition-all cursor-pointer shadow-sm"
             aria-label="Open Order Cart"
           >
             <ShoppingBag className="w-4 h-4 text-amber-300" />
             <span className="hidden sm:inline">Order Cart</span>
-            {cartCount > 0 && (
-              <span className="bg-[#C2410C] text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center animate-pulse">
-                {cartCount}
-              </span>
-            )}
-          </button>
+            <AnimatePresence mode="popLayout">
+              {cartCount > 0 && (
+                <motion.span
+                  key={cartCount}
+                  initial={{ scale: 0.4, opacity: 0 }}
+                  animate={{ scale: [1.35, 1], opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+                  className="bg-[#C2410C] text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md"
+                >
+                  {cartCount}
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+
 
           <a
             href={FB_MARKETPLACE_URL}

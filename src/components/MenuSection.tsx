@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { MENU_ITEMS, PORTION_PRICINGS } from '../data/menuData';
 import { MenuItem, PortionSizeId } from '../types';
 import { Camera, Plus, Check, AlertTriangle, ShieldCheck, Flame } from 'lucide-react';
@@ -19,8 +20,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
     pulao: true,
   });
 
-  const [addedNotice, setAddedNotice] = useState<string | null>(null);
-
   const handleSizeChange = (dishId: string, sizeId: PortionSizeId) => {
     setSelectedSizes((prev) => ({ ...prev, [dishId]: sizeId }));
   };
@@ -33,11 +32,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
     const sizeId = selectedSizes[dish.id];
     const isNutless = dish.id === 'mandi' ? nutlessSelections.mandi : true;
     onAddToCart(dish.id, sizeId, isNutless);
-
-    const sizeObj = PORTION_PRICINGS.find((p) => p.id === sizeId);
-    setAddedNotice(`Added ${dish.name} (${sizeObj?.name}) to your order!`);
-    setTimeout(() => setAddedNotice(null), 3000);
   };
+
 
   return (
     <section id="menu" className="py-16 bg-[#FDFBF7] border-y border-[#E9E4DB]">
@@ -53,13 +49,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
             Slow-cooked with premium Halal Lamb shank, fragrant basmati rice, and traditional spice blends.
           </p>
         </div>
-
-        {addedNotice && (
-          <div className="fixed bottom-6 right-6 z-50 bg-[#2D2A26] text-[#FDFBF7] px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 animate-bounce border border-[#8B4513]">
-            <Check className="w-5 h-5 text-emerald-400" />
-            <span className="text-sm font-semibold">{addedNotice}</span>
-          </div>
-        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {MENU_ITEMS.map((dish) => {
@@ -179,13 +168,15 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                     <span className="text-2xl font-black text-[#2D2A26]">${currentPricing.price} <span className="text-xs font-normal text-[#5A554E]">CAD</span></span>
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.94 }}
                     onClick={() => handleAdd(dish)}
-                    className="bg-[#8B4513] hover:bg-[#A0522D] text-white font-bold px-5 py-3 rounded-xl shadow-sm transition-all flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
+                    className="bg-[#8B4513] hover:bg-[#A0522D] text-white font-bold px-5 py-3 rounded-xl shadow-sm transition-colors flex items-center gap-2 cursor-pointer"
                   >
                     <Plus className="w-5 h-5 text-amber-300" />
                     <span>Add to Order Builder</span>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             );

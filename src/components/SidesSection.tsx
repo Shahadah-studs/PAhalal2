@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { SIDES_ITEMS, ASSET_IMAGES } from '../data/menuData';
 import { SideItem } from '../types';
 import { Plus, Check, ShieldCheck, Sparkles } from 'lucide-react';
@@ -13,8 +14,6 @@ export const SidesSection: React.FC<SidesSectionProps> = ({ onAddSide }) => {
     mandhi_sauce: 1,
   });
 
-  const [addedNotice, setAddedNotice] = useState<string | null>(null);
-
   const handleQtyChange = (sideId: string, delta: number) => {
     setQuantities((prev) => {
       const newQty = Math.max(1, (prev[sideId] || 1) + delta);
@@ -25,21 +24,13 @@ export const SidesSection: React.FC<SidesSectionProps> = ({ onAddSide }) => {
   const handleAdd = (side: SideItem) => {
     const qty = quantities[side.id] || 1;
     onAddSide(side, qty);
-    setAddedNotice(`Added ${qty}x ${side.name} to order!`);
-    setTimeout(() => setAddedNotice(null), 2500);
   };
 
   return (
     <section id="sides" className="py-16 bg-[#F5EFE6]/60 border-b border-[#E9E4DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        {addedNotice && (
-          <div className="fixed bottom-6 right-6 z-50 bg-[#2D2A26] text-[#FDFBF7] px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 border border-[#8B4513]">
-            <Check className="w-5 h-5 text-emerald-400" />
-            <span className="text-sm font-semibold">{addedNotice}</span>
-          </div>
-        )}
-
         <div className="text-center max-w-2xl mx-auto space-y-3">
+
           <span className="text-xs font-bold uppercase tracking-widest text-[#8B4513] bg-[#FDFBF7] px-3.5 py-1 rounded-full border border-[#D9D0C1]">
             Nut-Free Companions
           </span>
@@ -108,13 +99,15 @@ export const SidesSection: React.FC<SidesSectionProps> = ({ onAddSide }) => {
                       </button>
                     </div>
 
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.92 }}
                       onClick={() => handleAdd(side)}
-                      className="bg-[#8B4513] hover:bg-[#A0522D] text-white font-bold text-xs px-3.5 py-2 rounded-lg shadow-xs flex items-center gap-1.5 transition-all cursor-pointer hover:scale-105 active:scale-95"
+                      className="bg-[#8B4513] hover:bg-[#A0522D] text-white font-bold text-xs px-3.5 py-2 rounded-lg shadow-xs flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
                       <Plus className="w-4 h-4 text-amber-300" />
                       <span>Add (${side.price * qty})</span>
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               );
