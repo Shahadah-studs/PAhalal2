@@ -28,7 +28,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
   const [notes, setNotes] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Quick add selectors inside cart
   const [quickDish, setQuickDish] = useState<'mandi' | 'pulao'>('mandi');
   const [quickSize, setQuickSize] = useState<PortionSizeId>('single');
   const [quickNutless, setQuickNutless] = useState(false);
@@ -37,7 +36,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
   const subtotalSides = cartSides.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const grandTotal = subtotalDishes + subtotalSides;
 
-  // Generate clean message for Facebook Marketplace DM
   const generateOrderMessage = (): string => {
     let msg = `Hello Prince Albert Halal Kitchen! 👋\n`;
     msg += `I would like to place an order:\n\n`;
@@ -92,7 +90,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
   return (
     <section id="order-builder" className="py-16 bg-[#2D2A26] text-[#FDFBF7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Title */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-amber-200 bg-[#8B4513] px-3.5 py-1 rounded-full border border-[#A0522D]">
             Interactive Calculator
@@ -106,7 +103,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Cart Items & Customization */}
           <div className="lg:col-span-7 bg-[#23201D] rounded-2xl p-6 sm:p-8 border border-[#8B4513]/40 shadow-xl space-y-8">
             <div className="flex items-center justify-between border-b border-[#8B4513]/30 pb-4">
               <h3 className="font-serif text-xl font-bold text-amber-300 flex items-center gap-2">
@@ -123,7 +119,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               )}
             </div>
 
-            {/* Empty State */}
             {cartDishes.length === 0 && cartSides.length === 0 ? (
               <div className="text-center py-10 px-4 bg-[#2D2A26]/50 rounded-xl border border-dashed border-[#8B4513]/40 space-y-3">
                 <p className="text-[#D9D0C1] text-sm">Your order cart is currently empty.</p>
@@ -133,7 +128,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               </div>
             ) : (
               <div className="space-y-4">
-                {/* Dish Items List */}
                 {cartDishes.map((item, idx) => (
                   <div
                     key={`dish-${idx}`}
@@ -154,7 +148,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
                       <p className="text-xs text-[#D9D0C1] font-mono">${item.price} CAD each</p>
                     </div>
 
-                    {/* Quantity Controls & Remove */}
                     <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-[#8B4513]/30 pt-2 sm:pt-0">
                       <div className="flex items-center bg-[#23201D] rounded-lg border border-[#8B4513]/60">
                         <button
@@ -187,7 +180,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
                   </div>
                 ))}
 
-                {/* Side Items List */}
                 {cartSides.map((item) => (
                   <div
                     key={`side-${item.sideId}`}
@@ -232,7 +224,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               </div>
             )}
 
-            {/* Fulfillment Options */}
             <div className="space-y-4 pt-4 border-t border-[#8B4513]/40">
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300">
                 Choose Fulfillment Method:
@@ -282,7 +273,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
                 </button>
               </div>
 
-              {/* Delivery Address Form */}
               {fulfillment === 'delivery' && (
                 <div className="bg-[#2D2A26] p-4 rounded-xl border border-[#8B4513]/60 space-y-3">
                   <div>
@@ -316,7 +306,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
                 </div>
               )}
 
-              {/* Special Instructions Notes */}
               <div>
                 <label className="block text-xs font-semibold text-[#D9D0C1] mb-1">
                   Special Instructions / DM Note (Optional):
@@ -332,7 +321,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Order Summary & Message Generator */}
           <div className="lg:col-span-5 bg-[#23201D] rounded-2xl p-6 sm:p-8 border border-[#8B4513]/40 shadow-xl space-y-6 sticky top-24">
             <h3 className="font-serif text-xl font-bold text-amber-300 border-b border-[#8B4513]/30 pb-3 flex items-center justify-between">
               <span>Order Summary</span>
@@ -341,7 +329,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               </span>
             </h3>
 
-            {/* Price Calculations */}
             <div className="space-y-3 text-sm border-b border-[#8B4513]/30 pb-4">
               <div className="flex justify-between text-[#D9D0C1]">
                 <span>Dishes Subtotal</span>
@@ -362,7 +349,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               </div>
             </div>
 
-            {/* Cash Only Policy Alert */}
             <div className="bg-[#8B4513]/30 border border-[#8B4513] p-4 rounded-xl flex items-start gap-3">
               <DollarSign className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
               <div className="text-xs text-[#E9E4DB] leading-relaxed">
@@ -371,7 +357,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               </div>
             </div>
 
-            {/* Formatted Message Preview Box */}
             <div className="space-y-2">
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300">
                 Formatted Message Preview for Facebook DM:
@@ -384,7 +369,6 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               />
             </div>
 
-            {/* Primary Action Button */}
             <button
               onClick={handleCopyAndRedirect}
               disabled={cartDishes.length === 0 && cartSides.length === 0}

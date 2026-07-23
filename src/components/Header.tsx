@@ -20,7 +20,6 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#2D2A26] text-[#FDFBF7] backdrop-blur-md border-b border-[#8B4513]/40 shadow-lg">
-      {/* Top Banner Notice */}
       <div className="bg-[#8B4513] text-[#FDFBF7] px-4 py-1.5 text-xs sm:text-sm font-medium text-center border-b border-[#A0522D] flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
         <span className="inline-flex items-center gap-1.5 text-amber-200 font-semibold">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -39,7 +38,6 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-        {/* Logo Brand */}
         <div className="flex items-center gap-3">
           <img
             src={LOGO_URL}
@@ -57,7 +55,6 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
           </div>
         </div>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-[#E9E4DB]">
           <button onClick={() => scrollTo('menu')} className="hover:text-amber-400 transition-colors cursor-pointer">
             Menu &amp; Pricing
@@ -73,7 +70,6 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
           </button>
         </nav>
 
-        {/* Action Buttons */}
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenCart}
@@ -100,7 +96,6 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
             <span>FB Marketplace</span>
           </a>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 text-[#E9E4DB] hover:text-white rounded-lg bg-[#8B4513]/50 cursor-pointer"
@@ -111,7 +106,6 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#2D2A26] border-t border-[#8B4513]/60 px-4 py-4 space-y-3">
           <button

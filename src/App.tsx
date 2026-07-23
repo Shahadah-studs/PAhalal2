@@ -18,7 +18,6 @@ export default function App() {
   const [cartSides, setCartSides] = useState<SideCartItem[]>([]);
   const [activePhotoDish, setActivePhotoDish] = useState<MenuItem | null>(null);
 
-  // Total cart count (dishes + sides)
   const cartCount =
     cartDishes.reduce((sum, d) => sum + d.quantity, 0) +
     cartSides.reduce((sum, s) => sum + s.quantity, 0);
@@ -29,7 +28,6 @@ export default function App() {
     if (!dishObj || !sizeObj) return;
 
     setCartDishes((prev) => {
-      // Check if identical dish + size + nut preference exists
       const existingIdx = prev.findIndex(
         (item) => item.dishId === dishId && item.sizeId === sizeId && item.isNutless === isNutless
       );
@@ -124,10 +122,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-stone-100 text-stone-900 font-sans flex flex-col antialiased selection:bg-amber-200 selection:text-amber-950">
-      {/* Header Bar */}
       <Header cartCount={cartCount} onOpenCart={scrollToOrderBuilder} />
 
-      {/* Main Page Content */}
       <main className="flex-1">
         <HeroBanner onStartOrder={scrollToOrderBuilder} />
 
@@ -155,10 +151,8 @@ export default function App() {
         <FaqSection />
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Lightbox Photo Modal */}
       <PhotoModal
         dish={activePhotoDish}
         onClose={() => setActivePhotoDish(null)}

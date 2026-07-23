@@ -7,7 +7,6 @@ export const Footer: React.FC = () => {
     <footer className="bg-[#2D2A26] text-[#FDFBF7] border-t border-[#8B4513]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Col */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-3">
               <img
@@ -39,7 +38,6 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Service Hours & Delivery */}
           <div className="space-y-3">
             <h4 className="font-serif text-base font-bold text-amber-200 uppercase tracking-wider">
               Delivery &amp; Pickup
@@ -60,7 +58,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact / Order Link */}
           <div className="space-y-3">
             <h4 className="font-serif text-base font-bold text-amber-200 uppercase tracking-wider">
               How to Order

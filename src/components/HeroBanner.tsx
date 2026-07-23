@@ -9,7 +9,6 @@ interface HeroBannerProps {
 export const HeroBanner: React.FC<HeroBannerProps> = ({ onStartOrder }) => {
   return (
     <div className="relative overflow-hidden bg-[#2D2A26] text-[#FDFBF7]">
-      {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={ASSET_IMAGES.heroBanner}
@@ -22,24 +21,20 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onStartOrder }) => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
         <div className="max-w-3xl space-y-6">
-          {/* Tagline Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B4513]/90 border border-[#A0522D] text-[#FDFBF7] text-xs sm:text-sm font-semibold tracking-wide shadow-sm backdrop-blur-sm">
             <Sparkles className="w-4 h-4 text-amber-300" />
             <span>Prince Albert&apos;s Local Halal Destination</span>
           </div>
 
-          {/* Main Title */}
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#FDFBF7] leading-tight">
             Authentic <span className="text-amber-300 italic">Kabuli Pulao</span> &amp;{' '}
             <span className="text-amber-200 italic">Arabian Mandi</span>
           </h1>
 
-          {/* Welcome Message */}
           <p className="text-[#E9E4DB] text-base sm:text-xl font-sans leading-relaxed">
             Welcome to <strong className="text-amber-200 font-semibold">Prince Albert Halal Kitchen</strong> — your local home for rich, delicious Middle Eastern and Afghan rice dishes. Freshly slow-cooked in Prince Albert with authentic spices and tender Halal lamb shank.
           </p>
 
-          {/* Quick Info Grid Badges */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div className="bg-[#8B4513]/40 backdrop-blur-sm border border-[#8B4513]/60 p-3 rounded-xl flex items-center gap-2.5">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -74,7 +69,6 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onStartOrder }) => {
             </div>
           </div>
 
-          {/* Call to Actions */}
           <div className="pt-4 flex flex-wrap gap-4 items-center">
             <button
               onClick={onStartOrder}
@@ -95,7 +89,6 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onStartOrder }) => {
             </a>
           </div>
 
-          {/* Cash Notice Footer Pill */}
           <p className="text-xs text-[#D9D0C1] italic font-mono flex items-center gap-1.5 pt-1">
             * Note: Cash accepted only upon pick up or Sunday delivery.
           </p>

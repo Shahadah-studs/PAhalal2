@@ -19,7 +19,6 @@ export const DeliveryInfoCard: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Sunday Delivery */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E9E4DB] space-y-4 hover:border-[#8B4513] transition-all">
             <div className="w-12 h-12 rounded-xl bg-[#F5EFE6] text-[#8B4513] flex items-center justify-center font-bold">
               <Truck className="w-6 h-6 text-[#8B4513]" />
@@ -41,7 +40,6 @@ export const DeliveryInfoCard: React.FC = () => {
             </ul>
           </div>
 
-          {/* Card 2: Pickup Option */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E9E4DB] space-y-4 hover:border-[#8B4513] transition-all">
             <div className="w-12 h-12 rounded-xl bg-[#F5EFE6] text-[#8B4513] flex items-center justify-center font-bold">
               <MapPin className="w-6 h-6 text-[#8B4513]" />
@@ -63,7 +61,6 @@ export const DeliveryInfoCard: React.FC = () => {
             </ul>
           </div>
 
-          {/* Card 3: Cash Payment */}
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E9E4DB] space-y-4 hover:border-[#8B4513] transition-all">
             <div className="w-12 h-12 rounded-xl bg-[#2D2A26] text-[#FDFBF7] flex items-center justify-center font-bold">
               <DollarSign className="w-6 h-6 text-emerald-400" />
@@ -86,7 +83,6 @@ export const DeliveryInfoCard: React.FC = () => {
           </div>
         </div>
 
-        {/* Facebook Marketplace CTA Banner */}
         <div className="bg-[#2D2A26] border border-[#8B4513]/60 rounded-2xl p-6 sm:p-8 text-[#FDFBF7] shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
             <h3 className="font-serif text-2xl font-bold text-amber-200">

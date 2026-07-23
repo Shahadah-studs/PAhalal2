@@ -32,7 +32,6 @@ export const SidesSection: React.FC<SidesSectionProps> = ({ onAddSide }) => {
   return (
     <section id="sides" className="py-16 bg-[#F5EFE6]/60 border-b border-[#E9E4DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        {/* Toast */}
         {addedNotice && (
           <div className="fixed bottom-6 right-6 z-50 bg-[#2D2A26] text-[#FDFBF7] px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 border border-[#8B4513]">
             <Check className="w-5 h-5 text-emerald-400" />
@@ -52,7 +51,6 @@ export const SidesSection: React.FC<SidesSectionProps> = ({ onAddSide }) => {
           </p>
         </div>
 
-        {/* Banner with Sides Image */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#E9E4DB]">
           <div className="md:col-span-1 rounded-xl overflow-hidden shadow-sm h-52 relative group">
             <img
@@ -91,7 +89,6 @@ export const SidesSection: React.FC<SidesSectionProps> = ({ onAddSide }) => {
                     </p>
                   </div>
 
-                  {/* Quantity selector & Add button */}
                   <div className="flex items-center justify-between gap-3 pt-2 border-t border-[#E9E4DB]">
                     <div className="flex items-center bg-white rounded-lg border border-[#D9D0C1] overflow-hidden">
                       <button

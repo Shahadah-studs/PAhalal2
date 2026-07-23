@@ -16,7 +16,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
 
   const [nutlessSelections, setNutlessSelections] = useState<Record<string, boolean>>({
     mandi: false,
-    pulao: true, // Pulao is always nut-free
+    pulao: true,
   });
 
   const [addedNotice, setAddedNotice] = useState<string | null>(null);
@@ -42,7 +42,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
   return (
     <section id="menu" className="py-16 bg-[#FDFBF7] border-y border-[#E9E4DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-[#8B4513] bg-[#F5EFE6] px-3.5 py-1 rounded-full border border-[#D9D0C1]">
             Our Specialty Rice Dishes
@@ -55,7 +54,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
           </p>
         </div>
 
-        {/* Success Toast Notice */}
         {addedNotice && (
           <div className="fixed bottom-6 right-6 z-50 bg-[#2D2A26] text-[#FDFBF7] px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 animate-bounce border border-[#8B4513]">
             <Check className="w-5 h-5 text-emerald-400" />
@@ -63,7 +61,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
           </div>
         )}
 
-        {/* Dish Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {MENU_ITEMS.map((dish) => {
             const currentSizeId = selectedSizes[dish.id];
@@ -76,7 +73,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                 className="bg-white rounded-2xl shadow-sm border border-[#E9E4DB] overflow-hidden flex flex-col justify-between hover:shadow-md transition-all duration-300"
               >
                 <div>
-                  {/* Image Container with Photo Modal Launcher */}
                   <div className="relative h-64 sm:h-72 w-full overflow-hidden group">
                     <img
                       src={dish.photoUrl}
@@ -86,18 +82,15 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2D2A26]/80 via-transparent to-transparent" />
 
-                    {/* Dish Origin Tag */}
                     <div className="absolute top-4 left-4 bg-[#2D2A26]/80 backdrop-blur-md text-[#FDFBF7] text-xs font-semibold px-3 py-1.5 rounded-lg border border-[#8B4513]/50 flex items-center gap-1.5">
                       <Flame className="w-3.5 h-3.5 text-amber-400" />
                       <span>{dish.origin}</span>
                     </div>
 
-                    {/* Meat Tag */}
                     <div className="absolute top-4 right-4 bg-emerald-900/80 backdrop-blur-md text-emerald-200 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-700/50">
                       Meat: {dish.meat}
                     </div>
 
-                    {/* View Photos Link Button */}
                     <button
                       onClick={() => onSelectPhoto(dish)}
                       className="absolute bottom-4 right-4 bg-[#FDFBF7]/95 hover:bg-white text-[#2D2A26] text-xs font-bold px-3.5 py-2 rounded-lg shadow-md border border-[#D9D0C1] flex items-center gap-2 transition-all cursor-pointer hover:scale-105"
@@ -107,7 +100,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                     </button>
                   </div>
 
-                  {/* Card Content Body */}
                   <div className="p-6 sm:p-7 space-y-5">
                     <div>
                       <div className="flex justify-between items-start gap-4">
@@ -116,7 +108,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                       <p className="text-[#5A554E] text-sm mt-2 leading-relaxed">{dish.description}</p>
                     </div>
 
-                    {/* Allergen Badge & Option */}
                     <div className="bg-[#F5EFE6] rounded-xl p-4 border border-[#E9E4DB] space-y-2">
                       <div className="flex items-center gap-2 text-xs font-bold text-[#2D2A26]">
                         {isMandi ? (
@@ -132,7 +123,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                         )}
                       </div>
 
-                      {/* Mandi Nutless Checkbox Option */}
                       {isMandi && (
                         <label className="flex items-center gap-2.5 pt-1 cursor-pointer text-xs font-semibold text-[#2D2A26]">
                           <input
@@ -148,7 +138,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                       )}
                     </div>
 
-                    {/* Portion Size Selector */}
                     <div className="space-y-2">
                       <label className="block text-xs font-bold uppercase tracking-wider text-[#8B4513]">
                         Select Portion Size &amp; Pricing:
@@ -184,7 +173,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                   </div>
                 </div>
 
-                {/* Footer Action */}
                 <div className="p-6 bg-[#F5EFE6] border-t border-[#E9E4DB] flex items-center justify-between gap-4">
                   <div>
                     <span className="text-xs text-[#5A554E] uppercase font-semibold block">Total for {currentPricing.name}</span>
@@ -204,7 +192,6 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
           })}
         </div>
 
-        {/* Pricing Summary Card Notice */}
         <div className="bg-[#2D2A26] text-[#FDFBF7] rounded-2xl p-6 sm:p-8 shadow-lg border border-[#8B4513]/60">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">

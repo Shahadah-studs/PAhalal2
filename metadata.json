@@ -2,5 +2,5 @@
   "name": "Prince Albert Halal Kitchen",
   "description": "Authentic Kabuli Pulao & Arabian Mandi in Prince Albert - Menu, Order Calculator, Sunday Delivery Info, and Direct Order Link",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

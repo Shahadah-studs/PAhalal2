@@ -17,7 +17,6 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
       <div className="bg-[#FDFBF7] rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-[#8B4513]/30 max-h-[90vh] flex flex-col text-[#2D2A26]">
-        {/* Header bar */}
         <div className="bg-[#2D2A26] text-[#FDFBF7] px-6 py-4 flex items-center justify-between border-b border-[#8B4513]">
           <div className="flex items-center gap-2">
             <Flame className="w-5 h-5 text-amber-400" />
@@ -32,9 +31,7 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
           </button>
         </div>
 
-        {/* Modal Scrollable Body */}
         <div className="p-6 overflow-y-auto space-y-6">
-          {/* Main Photo */}
           <div className="rounded-xl overflow-hidden shadow-md max-h-96 relative bg-[#23201D]">
             <img
               src={dish.photoUrl}
@@ -47,7 +44,6 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
             </div>
           </div>
 
-          {/* Dish Details */}
           <div className="space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h4 className="font-serif text-2xl font-bold text-[#2D2A26]">{dish.name}</h4>
@@ -58,7 +54,6 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
             <p className="text-[#5A554E] text-sm leading-relaxed">{dish.description}</p>
           </div>
 
-          {/* Allergen Info */}
           <div className={`p-4 rounded-xl border text-xs ${isMandi ? 'bg-[#F5EFE6] border-[#D9D0C1] text-[#8B4513]' : 'bg-emerald-50 border-emerald-200 text-emerald-900'}`}>
             <div className="flex items-center gap-2 font-bold mb-1">
               {isMandi ? (
@@ -80,7 +75,6 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
             </p>
           </div>
 
-          {/* Portion Pricing Quick Buttons */}
           <div className="space-y-2">
             <h5 className="text-xs font-bold uppercase tracking-wider text-[#8B4513]">
               Quick Add Portion to Order:
@@ -103,7 +97,6 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ dish, onClose, onAddToCa
           </div>
         </div>
 
-        {/* Footer */}
         <div className="bg-[#F5EFE6] p-4 border-t border-[#E9E4DB] flex justify-end">
           <button
             onClick={onClose}
