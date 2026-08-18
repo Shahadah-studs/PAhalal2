@@ -21,10 +21,15 @@
         width:100%;
         font-family: monospace, monospace;
         font-size:18px;
-        color:#D4AF37;
+        /* Black to gold gradient at 255deg */
+        color:#D4AF37; /* fallback */
+        background: linear-gradient(255deg, #000 0%, #D4AF37 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align:center;
         padding:4px 0;
-        background:transparent;
+        background-color:transparent;
         z-index:9999;
         pointer-events:none;
       }
