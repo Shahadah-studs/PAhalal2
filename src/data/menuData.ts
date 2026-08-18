@@ -14,7 +14,8 @@ export const ASSET_IMAGES = {
 
 export const FB_MARKETPLACE_URL = 'https://www.facebook.com/profile.php?id=61578219946307';
 
-export const LOGO_URL = src="/Vroom.png"   ;
+export const LOGO_URL = 'https://scontent.fisb5-1.fna.fbcdn.net/v/t39.30808-6/520242680_122113134626935012_7761778627953869721_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1024&ctp=p526x296&_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=npEdlLpj82EQ7kNvwGtobFX&_nc_oc=AdpLOmgyf-d7F6O0IF-pN_W4dQ_6Qlen-th1i6MZ1up2Sj4HXRnSUHQmNDW_lFnHHz8&_nc_zt=23&_nc_ht=scontent.fisb5-1.fna&_nc_gid=hqnmQ39IuG4M7klrSIxQEQ&_nc_ss=7a289&oh=00_AQD2aduXtRk3txawJzHfxNl_k69LxzjT_pwAI_J8T7NTpA&oe=6A66B190'
+   ;
 
 export const PORTION_PRICINGS: PortionPricing[] = [
   {
