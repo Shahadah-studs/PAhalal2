@@ -1,4 +1,4 @@
-# Prince Albert Halal Kitchen (PAhalal2)
+## Prince Albert Halal Kitchen (PAhalal2)
 
 A fast, friendly single‑page menu and ordering frontend for Prince Albert Halal Kitchen. Built with React, TypeScript, and Vite — PAhalal2 is a compact storefront UI that lets customers browse dishes, choose portion sizes, add sides, preview totals, and see delivery info, reviews, and FAQs.
 
