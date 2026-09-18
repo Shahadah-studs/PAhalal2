@@ -102,6 +102,12 @@ The application is configured as a Vite frontend and is deployed at [pahalal.ver
 
 Prince Albert Halal Kitchen serves halal Kabuli Pulao and Arabian Mandi in Prince Albert. Menu availability, delivery schedules, pricing, and ordering details should be confirmed in the application before placing an order.
 
+## Credits
+
+This project is created and maintained by [Shahadah-studs](https://github.com/Shahadah-studs) only.
+
 ## License
 
-No license has currently been specified for this repository.
+This project is licensed under the [MIT License](LICENSE).
+
+Copyright (c) 2026 Shahadah-studs
