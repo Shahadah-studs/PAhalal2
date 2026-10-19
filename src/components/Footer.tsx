@@ -31,10 +31,7 @@ export const Footer: React.FC = () => {
                 <Heart className="w-3.5 h-3.5 text-rose-400" />
                 Family-Owned
               </span>
-              <span className="bg-[#8B4513] text-[#FDFBF7] text-xs px-2.5 py-1 rounded-md border border-[#A0522D] font-semibold flex items-center gap-1">
-                <DollarSign className="w-3.5 h-3.5 text-emerald-400" />
-                Cash Only
-              </span>
+              
             </div>
           </div>
 
