@@ -113,12 +113,12 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'What are the payment options?',
-    answer: 'We accept CASH ONLY upon pick up or delivery. Please have exact or appropriate cash ready when receiving your meal.',
+    answer: 'We accept any payment option you want to give! E-Transfer and many more!',
   },
   {
     question: 'When and where is delivery available?',
     answer:
-      'Deliveries are available on SUNDAYS ONLY, exclusively within Prince Albert, SK. Please provide your exact house address when placing your Sunday order.',
+      'Deliveries are available on SUNDAYS ONLY and sometimes Saturdays, exclusively within Prince Albert, SK. Please provide your exact house address when placing your Sunday order.',
   },
   {
     question: 'Can I order nut-free Arabian Mandi?',
@@ -127,7 +127,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'Is all meat 100% Halal?',
-    answer: 'Yes! Prince Albert Halal Kitchen is 100% Halal certified and family-owned, using only fresh premium Halal lamb.',
+    answer: 'Yes! Prince Albert Halal Kitchen is 100% Halal and family-owned, using only fresh premium Halal lamb.',
   },
 ];
 
