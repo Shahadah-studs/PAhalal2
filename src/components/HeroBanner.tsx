@@ -85,13 +85,11 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onStartOrder }) => {
               className="bg-[#C2410C] hover:bg-[#D97706] text-white font-bold text-base px-6 py-3.5 rounded-xl shadow-lg transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-2.5"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
-              <span>Order via FB Marketplace</span>
+              <span>Order via FaceBook Marketplace</span>
             </a>
           </div>
 
-          <p className="text-xs text-[#D9D0C1] italic font-mono flex items-center gap-1.5 pt-1">
-            * Note: Cash accepted only upon pick up or Sunday delivery.
-          </p>
+         
         </div>
       </div>
     </div>
