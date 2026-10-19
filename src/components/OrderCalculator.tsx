@@ -374,10 +374,7 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
               </div>
             </div>
 
-            <div className="bg-[#8B4513]/30 border border-[#8B4513] p-4 rounded-xl flex items-start gap-3">
-              <DollarSign className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-             
-            </div>
+            
 
             <div className="space-y-2">
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-300">
