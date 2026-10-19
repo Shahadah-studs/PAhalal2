@@ -52,8 +52,7 @@ export const Footer: React.FC = () => {
                 <span>Prince Albert limits only</span>
               </li>
               <li className="flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Cash accepted upon arrival</span>
+               
               </li>
             </ul>
           </div>
