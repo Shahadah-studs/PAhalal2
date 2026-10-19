@@ -133,21 +133,21 @@ export const FAQ_ITEMS: FAQItem[] = [
 
 export const REVIEWS: ReviewItem[] = [
   {
-    author: 'Tariq K., Prince Albert',
+    author: 'Lando, Prince Albert',
     rating: 5,
-    text: 'The Kabuli Pulao is absolute perfection! Tender lamb that falls off the bone and sweet carrots over aromatic rice. Prince Albert needed this!',
-    dish: 'Kabuli Pulao',
-  },
-  {
-    author: 'Sarah M., Prince Albert',
-    rating: 5,
-    text: 'Ordered the Arabian Mandi Family Platter for Sunday dinner. The whole family loved it! The Mandi sauce and Raita complement the dish so well.',
+    text: 'OMG, food from heaven brother!',
     dish: 'Arabian Mandi',
   },
   {
-    author: 'Dawud S., Prince Albert',
+    author: 'Jay, Prince Albert',
     rating: 5,
-    text: 'Great portion sizes for $25 single or $90 platter. High quality halal lamb, cooked with genuine passion. Will be ordering every weekend!',
-    dish: 'Family Platter',
+    text: 'Hey, it was amazing. I definitely ate too much. That tomato sauce and hot pepper really took it up to the next level!',
+    dish: 'Arabian Mandi',
+  },
+  {
+    author: 'Gin D., Prince Albert',
+    rating: 5,
+    text: 'Its very good, especially the dipping sauce. Its a very good deal as it comes with 2 big chicked thighs',
+    dish: 'Arabian Mandi',
   },
 ];
