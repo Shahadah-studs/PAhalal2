@@ -61,17 +61,6 @@ export const DeliveryInfoCard: React.FC = () => {
             </ul>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E9E4DB] space-y-4 hover:border-[#8B4513] transition-all">
-            
-            <ul className="space-y-2 text-xs text-[#5A554E]">
-             
-              <li className="flex items-start gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                
-              </li>
-              
-            </ul>
-          </div>
         </div>
 
         <div className="bg-[#2D2A26] border border-[#8B4513]/60 rounded-2xl p-6 sm:p-8 text-[#FDFBF7] shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
