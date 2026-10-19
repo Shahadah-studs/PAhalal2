@@ -55,7 +55,7 @@ export const DeliveryInfoCard: React.FC = () => {
                 <span><strong>Flexible Scheduling:</strong> Arrange your pick up time when DMing on Facebook.</span>
               </li>
               <li className="flex items-start gap-2">
-                <DollarSign className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                
                 <span><strong>No Fee:</strong> Zero delivery charge on all pick up orders.</span>
               </li>
             </ul>
@@ -64,10 +64,7 @@ export const DeliveryInfoCard: React.FC = () => {
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E9E4DB] space-y-4 hover:border-[#8B4513] transition-all">
             
             <ul className="space-y-2 text-xs text-[#5A554E]">
-              <li className="flex items-start gap-2">
-                <DollarSign className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                
-              </li>
+             
               <li className="flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 
