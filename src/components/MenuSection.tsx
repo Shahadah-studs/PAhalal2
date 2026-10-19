@@ -193,9 +193,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onSelectPhoto, onAddTo
                 Single: <strong className="text-[#FDFBF7]">$25</strong> | Double: <strong className="text-[#FDFBF7]">$50</strong> | Triple: <strong className="text-[#FDFBF7]">$75</strong> | Family Platter (4 Persons): <strong className="text-[#FDFBF7]">$90</strong> | Family Platter (8 Persons): <strong className="text-[#FDFBF7]">$180</strong>
               </p>
             </div>
-            <div className="bg-[#8B4513] border border-[#A0522D] px-5 py-3 rounded-xl text-[#FDFBF7] text-xs font-semibold text-center whitespace-nowrap">
-              💵 Note: Cash Accepted Only
-            </div>
+           
           </div>
         </div>
       </div>
