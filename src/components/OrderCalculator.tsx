@@ -59,14 +59,14 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
       msg += `\n`;
     }
 
-    msg += `💵 TOTAL: $${grandTotal} CAD (Cash Payment)\n\n`;
+    msg += `💵 TOTAL: $${grandTotal} CAD \n\n`;
 
     if (fulfillment === 'delivery') {
       msg += `🚚 FULFILLMENT: Sunday Delivery (Prince Albert Only)\n`;
       msg += `🏠 HOUSE ADDRESS: ${address ? address : '[Please type your address here]'}\n`;
       msg += `⏰ PREFERRED TIME: ${timeWindow}\n`;
     } else {
-      msg += `🛍️ FULFILLMENT: Pick Up (Cash on Pick up)\n`;
+      msg += `🛍️ FULFILLMENT: Pick Up \n`;
     }
 
     if (notes.trim()) {
@@ -294,9 +294,7 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
                       <MapPin className="w-4 h-4 text-emerald-400" />
                       Pick Up
                     </span>
-                    <span className="text-xs bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-700">
-                      Cash
-                    </span>
+                   
                   </div>
                   <p className="text-xs text-[#E9E4DB]">Pick up freshly made order at kitchen.</p>
                 </button>
@@ -353,9 +351,7 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
           <div className="lg:col-span-5 bg-[#23201D] rounded-2xl p-6 sm:p-8 border border-[#8B4513]/40 shadow-xl space-y-6 sticky top-24">
             <h3 className="font-serif text-xl font-bold text-amber-300 border-b border-[#8B4513]/30 pb-3 flex items-center justify-between">
               <span>Order Summary</span>
-              <span className="text-xs bg-[#8B4513] text-[#FDFBF7] px-2.5 py-1 rounded border border-[#A0522D] font-sans">
-                Cash Only
-              </span>
+              
             </h3>
 
             <div className="space-y-3 text-sm border-b border-[#8B4513]/30 pb-4">
@@ -380,10 +376,7 @@ export const OrderCalculator: React.FC<OrderCalculatorProps> = ({
 
             <div className="bg-[#8B4513]/30 border border-[#8B4513] p-4 rounded-xl flex items-start gap-3">
               <DollarSign className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-              <div className="text-xs text-[#E9E4DB] leading-relaxed">
-                <strong className="font-bold text-[#FDFBF7] block mb-0.5">Payment Notice:</strong>
-                Cash accepted only upon pick up or Sunday delivery. Please have cash ready.
-              </div>
+             
             </div>
 
             <div className="space-y-2">
