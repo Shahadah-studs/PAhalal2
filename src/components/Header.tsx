@@ -31,11 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
           <Calendar className="w-3.5 h-3.5 text-amber-300" />
           Sunday Deliveries Only (Prince Albert, SK)
         </span>
-        <span className="hidden md:inline text-amber-300/50">•</span>
-        <span className="inline-flex items-center gap-1 text-emerald-300 font-semibold">
-          <DollarSign className="w-3.5 h-3.5 text-emerald-400" />
-          Cash Accepted Only
-        </span>
+
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
