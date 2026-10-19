@@ -62,18 +62,15 @@ export const DeliveryInfoCard: React.FC = () => {
           </div>
 
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E9E4DB] space-y-4 hover:border-[#8B4513] transition-all">
-            <div className="w-12 h-12 rounded-xl bg-[#2D2A26] text-[#FDFBF7] flex items-center justify-center font-bold">
-              <DollarSign className="w-6 h-6 text-emerald-400" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-[#2D2A26]">Cash Accepted Only</h3>
+            
             <ul className="space-y-2 text-xs text-[#5A554E]">
               <li className="flex items-start gap-2">
                 <DollarSign className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Cash Only:</strong> Payment is collected in cash upon receiving your order.</span>
+                
               </li>
               <li className="flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Simple &amp; Direct:</strong> Pay exact or appropriate cash directly to our driver or at pickup.</span>
+                
               </li>
               <li className="flex items-start gap-2">
                 <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
