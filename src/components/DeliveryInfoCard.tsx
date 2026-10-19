@@ -72,10 +72,7 @@ export const DeliveryInfoCard: React.FC = () => {
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 
               </li>
-              <li className="flex items-start gap-2">
-                <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Confirm via DM:</strong> Send your order on FB Marketplace to lock in your Sunday slot.</span>
-              </li>
+              
             </ul>
           </div>
         </div>
